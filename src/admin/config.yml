@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: ze-websites/sutluceemlak.com
   branch: main
+  base_url: https://www.sutluceemlak.com
+  auth_endpoint: api/begin
 
 local_backend: true
 locale: tr

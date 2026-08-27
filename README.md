@@ -20,6 +20,6 @@ npm run dev
 
 Yerel CMS geliştirmesi için ayrı terminalde `npx decap-server` çalıştırın.
 
-Canlı ortamda `src/admin/config.yml` varsayılan olarak Netlify Git Gateway kullanır.
-Netlify Identity ve Git Gateway servislerini etkinleştirin. Farklı bir Git sağlayıcısı
-kullanılacaksa Decap CMS backend ayarını dağıtım ortamına göre değiştirin.
+Canlı CMS, Vercel üzerindeki GitHub OAuth fonksiyonlarını kullanır. GitHub OAuth App
+callback adresi `https://www.sutluceemlak.com/api/complete` olmalıdır. Vercel projesine
+`GITHUB_CLIENT_ID` ve `GITHUB_CLIENT_SECRET` ortam değişkenlerini ekleyin.
