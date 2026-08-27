@@ -62,13 +62,19 @@
     }
   }, true);
 
-  const observer = new MutationObserver(() => {
+  function enhanceFileInputs() {
     document.querySelectorAll('input[type="file"]').forEach(input => {
+      // Decap'ın varsayılan medya yükleyicisi config'teki `multiple` değerini
+      // native dosya alanına her zaman aktarmıyor. Kütüphaneye toplu yüklemeyi aç.
+      input.multiple = true;
       const accept = input.getAttribute("accept") || "";
       if (!accept.includes(".heic")) {
         input.setAttribute("accept", [accept, ".heic", ".heif", "image/heic", "image/heif"].filter(Boolean).join(","));
       }
     });
-  });
+  }
+
+  const observer = new MutationObserver(enhanceFileInputs);
   observer.observe(document.documentElement, { childList: true, subtree: true });
+  enhanceFileInputs();
 }());
