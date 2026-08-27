@@ -1,0 +1,5 @@
+---
+layout: layouts/base.njk
+---
+<section class="page-hero"><div class="container page-title"><span class="badge {{ badgeColor or 'green' }}">{{ category }}</span><h1>{{ title }}</h1><p>{{ description }}</p></div></section>
+<section class="section"><article class="container article"><img src="{{ image }}" alt="{{ title }}">{{ content | safe }}</article></section>

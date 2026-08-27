@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ seoTitle or (title + " | " + site.name) }}</title>
+  <meta name="description" content="{{ description or site.description }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:type" content="{{ 'article' if nav == 'blog' else 'website' }}">
+  <meta property="og:title" content="{{ seoTitle or (title + ' | ' + site.name) }}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "@id": "{{ site.url }}/#business",
+    "name": "{{ site.name }}",
+    "url": "{{ site.url }}",
+    "logo": "{{ site.url }}/assets/logo.png",
+    "image": "{{ site.url }}/assets/logo.png",
+    "description": "{{ site.description }}",
+    "telephone": "+{{ site.phoneRaw }}",
+    "email": "{{ site.email }}",
+    "priceRange": "₺₺",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Sütlüce Mahallesi Talip Paşa Sokak No 6/A",
+      "addressLocality": "Beyoğlu",
+      "addressRegion": "İstanbul",
+      "addressCountry": "TR"
+    },
+    "areaServed": ["Sütlüce", "Bademlik", "Halıcıoğlu", "Haliç", "Beyoğlu"],
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "09:00",
+      "closes": "19:00"
+    }]
+  }
+  </script>
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <div class="topbar"><div class="container"><span>📍 {{ site.address }}</span><span>☎ {{ site.phone }} &nbsp; · &nbsp; ✉ {{ site.email }}</span></div></div>
+  <header class="header"><div class="container nav">
+    <a class="logo" href="/"><img src="/assets/logo.png" alt="{{ site.name }}"></a>
+    <nav class="navlinks">
+      <a{% if nav == 'home' %} class="active"{% endif %} href="/">Ana Sayfa</a>
+      <a{% if nav == 'ilanlar' %} class="active"{% endif %} href="/ilanlar/">İlanlar</a>
+      <a{% if nav == 'hakkimizda' %} class="active"{% endif %} href="/hakkimizda/">Hakkımızda</a>
+      <a{% if nav == 'blog' %} class="active"{% endif %} href="/blog/">Bölge Rehberi</a>
+      <a{% if nav == 'iletisim' %} class="active"{% endif %} href="/iletisim/">İletişim</a>
+    </nav>
+    <div class="actions"><a class="btn btn-light" href="/iletisim/">Ücretsiz Değerleme</a><a class="btn btn-primary" href="/ilanlar/">İlanları Gör</a></div>
+    <button class="btn btn-light mobile-menu" data-menu aria-label="Menüyü aç">☰</button>
+  </div></header>
+  <main>{{ content | safe }}</main>
+  <footer class="footer"><div class="container">
+    <div class="footer-grid">
+      <div><a class="logo" href="/"><img src="/assets/logo.png" alt="{{ site.name }}"></a><p>{{ site.footerText }}</p></div>
+      <div><h4>Kurumsal</h4><a href="/hakkimizda/">Hakkımızda</a><a href="/iletisim/">İletişim</a><a href="#">KVKK</a></div>
+      <div><h4>Gayrimenkul</h4><a href="/ilanlar/">Satılık İlanlar</a><a href="/ilanlar/">Kiralık İlanlar</a><a href="/sutluce-bademlik-emlak/">Sütlüce Emlakçı</a><a href="/iletisim/">Gayrimenkul Değerleme</a></div>
+      <div><h4>Bölge Rehberi</h4><a href="/blog/">Sütlüce'de Yaşam</a><a href="/blog/">Ulaşım Rehberi</a><a href="/blog/">Üniversitelere Yakınlık</a></div>
+    </div>
+    <div class="copyright"><span>© 2026 {{ site.name }}. Tüm hakları saklıdır.</span><span>Sütlüce · Halıcıoğlu · Beyoğlu</span></div>
+  </div></footer>
+  <script src="/assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+locale: tr
+media_folder: src/uploads
+public_folder: /uploads
+
+collections:
+  - name: ilanlar
+    label: İlanlar
+    folder: src/ilanlar
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}"
+    fields:
+      - { label: Başlık, name: title, widget: string }
+      - { label: SEO Açıklaması, name: description, widget: text }
+      - { label: Tarih, name: date, widget: datetime, time_format: false }
+      - { label: Durum, name: status, widget: select, options: [Satılık, Kiralık] }
+      - { label: Gayrimenkul Türü, name: propertyType, widget: select, options: [Konut, Ticari, Ofis, Arsa] }
+      - { label: Konum, name: location, widget: string }
+      - { label: Fiyat, name: price, widget: string }
+      - { label: Kapak Görseli, name: image, widget: image }
+      - { label: Galeri, name: gallery, widget: list, field: { label: Görsel, name: image, widget: image } }
+      - { label: Özellikler, name: features, widget: list, field: { label: Özellik, name: feature, widget: string } }
+      - { label: Konum Avantajları, name: advantages, widget: list, field: { label: Avantaj, name: advantage, widget: string } }
+      - { label: Ana Sayfada Göster, name: featured, widget: boolean, default: false }
+      - { label: Açıklama, name: body, widget: markdown }
+
+  - name: blog
+    label: Blog Yazıları
+    folder: src/blog
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}"
+    fields:
+      - { label: Başlık, name: title, widget: string }
+      - { label: SEO Açıklaması, name: description, widget: text }
+      - { label: Kart Özeti, name: summary, widget: text }
+      - { label: Tarih, name: date, widget: datetime, time_format: false }
+      - { label: Kategori, name: category, widget: string }
+      - { label: Rozet Rengi, name: badgeColor, widget: select, options: [green, red, dark], default: green }
+      - { label: Kapak Görseli, name: image, widget: image }
+      - { label: Ana Sayfada Göster, name: featured, widget: boolean, default: false }
+      - { label: İçerik, name: body, widget: markdown }
+
+  - name: ayarlar
+    label: Site Ayarları
+    files:
+      - label: Genel Bilgiler
+        name: site
+        file: src/_data/site.json
+        fields:
+          - { label: Site Adı, name: name, widget: string }
+          - { label: Site Adresi, name: url, widget: string, hint: "https:// ile başlayan alan adı" }
+          - { label: SEO Açıklaması, name: description, widget: text }
+          - { label: Adres, name: address, widget: string }
+          - { label: Telefon, name: phone, widget: string }
+          - { label: Telefon (WhatsApp biçimi), name: phoneRaw, widget: string, hint: "Örnek: 905392715889" }
+          - { label: E-posta, name: email, widget: string }
+          - { label: Çalışma Saatleri, name: hours, widget: string }
+          - { label: Alt Bilgi Metni, name: footerText, widget: text }

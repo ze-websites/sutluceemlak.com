@@ -1,0 +1,12 @@
+---
+layout: layouts/base.njk
+title: İletişim
+nav: iletisim
+permalink: /iletisim/
+---
+<section class="page-hero"><div class="container page-title"><span class="badge red">İletişim</span><h1>Gayrimenkulünüz için konuşalım.</h1><p>Satış, kiralama, portföy ve ücretsiz ön değerleme talepleriniz için bize ulaşın.</p></div></section>
+<section class="section"><div class="container contact-grid">
+  <div><div class="contact-card"><b>Ofis</b><span>{{ site.address }}</span></div><br><div class="contact-card"><b>Telefon</b><a href="tel:+{{ site.phoneRaw }}">{{ site.phone }}</a></div><br><div class="contact-card"><b>E-posta</b><a href="mailto:{{ site.email }}">{{ site.email }}</a></div><br><div class="contact-card"><b>Çalışma Saatleri</b><span>{{ site.hours }}</span></div></div>
+  <form class="detail-card" data-whatsapp-form data-whatsapp-number="{{ site.phoneRaw }}"><h2>WhatsApp İletişim Formu</h2><p style="color:var(--muted)">Formu doldurduğunuzda mesajınız WhatsApp üzerinden hazır olarak açılır.</p><div class="form-grid"><input class="input" name="name" placeholder="Ad Soyad" required><input class="input" name="email" type="email" placeholder="E-posta"><select class="input form-grid-full" name="subject"><option>İlan hakkında bilgi</option><option>Gayrimenkulümü satmak istiyorum</option><option>Gayrimenkulümü kiralamak istiyorum</option><option>Değerleme talebi</option></select></div><br><textarea class="input" name="message" placeholder="Mesajınız" required></textarea><br><br><button class="btn btn-primary" type="submit">WhatsApp'tan Gönder</button></form>
+</div></section>
+<section class="map-section"><iframe title="Sütlüce Emlak konumu" src="https://www.google.com/maps?q=S%C3%BCtl%C3%BCce%20Mahallesi%20Talip%20Pa%C5%9Fa%20Sokak%20No%206%2FA%20Beyo%C4%9Flu%20%C4%B0stanbul&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></section>

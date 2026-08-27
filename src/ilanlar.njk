@@ -1,0 +1,7 @@
+---
+layout: layouts/base.njk
+title: İlanlar
+nav: ilanlar
+permalink: /ilanlar/
+---
+<section class="page-hero"><div class="container page-title"><span class="badge red">Portföy</span><h1>Satılık & Kiralık İlanlar</h1><p>Sütlüce, Halıcıoğlu ve Beyoğlu çevresindeki güncel portföyler.</p></div></section><section class="section"><div class="container"><div class="filters"><div class="field"><label>İşlem</label><select data-filter="status"><option value="">Tümü</option><option>Satılık</option><option>Kiralık</option></select></div><div class="field"><label>Tür</label><select data-filter="type"><option value="">Tümü</option><option>Konut</option><option>Ticari</option></select></div></div><div class="grid-3" data-listings>{% for item in collections.ilanlar %}<div data-status="{{ item.data.status }}" data-type="{{ item.data.propertyType }}">{% include "components/property-card.njk" %}</div>{% endfor %}</div><p class="empty-state" data-empty hidden>Bu kriterlere uygun ilan bulunamadı.</p></div></section>

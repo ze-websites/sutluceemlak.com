@@ -1,0 +1,14 @@
+---
+layout: layouts/base.njk
+---
+<section class="page-hero"><div class="container page-title"><span class="badge {{ 'green' if status == 'Satılık' else 'red' }}">{{ status }} {{ propertyType }}</span><h1>{{ title }}</h1><p>{{ location }}</p></div></section>
+<section class="section"><div class="container">
+  <div class="gallery"><div class="big"><img src="{{ image }}" alt="{{ title }}"></div>{% for photo in gallery %}<img src="{{ photo }}" alt="{{ title }} fotoğrafı {{ loop.index + 1 }}">{% endfor %}</div>
+  <div class="detail-grid" style="margin-top:28px"><div><div class="detail-card"><div class="price">{{ price }}</div>
+    <div class="specs">{% for feature in features %}<div class="spec"><small>Özellik</small><b>{{ feature }}</b></div>{% endfor %}</div>
+    <h2>İlan Açıklaması</h2><div class="article-content">{{ content | safe }}</div>
+    <h3>Konum avantajları</h3><div class="checks">{% for advantage in advantages %}<div class="check">{{ advantage }}</div>{% endfor %}</div>
+  </div></div>
+  <aside class="detail-card" style="align-self:start"><h3>Bu ilanla ilgileniyorum</h3><p style="color:var(--muted)">Detaylı bilgi ve gösterim randevusu için formu bırakın.</p><form data-whatsapp-form data-whatsapp-number="{{ site.phoneRaw }}"><input type="hidden" name="subject" value="{{ title }} ilanı hakkında bilgi"><input class="input" name="name" placeholder="Ad Soyad" required><br><br><input class="input" name="phone" placeholder="Telefon"><br><br><textarea class="input" name="message" required>Merhaba, bu ilan hakkında bilgi almak istiyorum.</textarea><br><br><button class="btn btn-primary" type="submit" style="width:100%">WhatsApp'tan Bilgi Talep Et</button></form></aside>
+  </div>
+</div></section>

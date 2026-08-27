@@ -1,0 +1,5 @@
+{
+  "layout": "layouts/post.njk",
+  "nav": "blog",
+  "tags": "yazilar"
+}
