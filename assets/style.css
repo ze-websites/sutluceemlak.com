@@ -89,6 +89,7 @@ button,input,select,textarea{font:inherit}
 .property:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
 .property-media{height:240px;position:relative;overflow:hidden}
 .property-media img{width:100%;height:100%;object-fit:cover;transition:.45s}
+.property-media img[src="/assets/logo.png"],.gallery img[src="/assets/logo.png"]{object-fit:contain;background:var(--soft);padding:38px}
 .property:hover .property-media img{transform:scale(1.04)}
 .property-tags{position:absolute;left:14px;top:14px;display:flex;gap:8px}
 .favorite{position:absolute;right:14px;top:14px;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.94);font-size:18px}
