@@ -4,6 +4,9 @@ export default function (eleventyConfig) {
   // Vercel `/admin` yolunu son eğik çizgi olmadan da sunar. Decap bu URL'de
   // config dosyasını `/config.yml` altında aradığı için iki yolu da yayımla.
   eleventyConfig.addPassthroughCopy({ "src/admin/config.yml": "config.yml" });
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/heic2any/dist/heic2any.min.js": "admin/vendor/heic2any.min.js"
+  });
   eleventyConfig.addPassthroughCopy({ "src/uploads": "uploads" });
 
   eleventyConfig.addCollection("ilanlar", collection =>

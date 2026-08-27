@@ -26,8 +26,16 @@ collections:
       - { label: Gayrimenkul Türü, name: propertyType, widget: select, options: [Konut, Ticari, Ofis, Arsa] }
       - { label: Konum, name: location, widget: string }
       - { label: Fiyat, name: price, widget: string }
-      - { label: Kapak Görseli, name: image, widget: image }
-      - { label: Galeri, name: gallery, widget: list, field: { label: Görsel, name: image, widget: image } }
+      - { label: Kapak Görseli, name: image, widget: image, allow_multiple: false }
+      - label: Galeri
+        name: gallery
+        widget: image
+        required: false
+        allow_multiple: true
+        hint: Birden fazla JPG, PNG, WebP veya HEIC dosyasını aynı anda seçebilirsiniz. HEIC dosyaları yüklenmeden önce JPEG'e dönüştürülür.
+        media_library:
+          config:
+            multiple: true
       - { label: Özellikler, name: features, widget: list, field: { label: Özellik, name: feature, widget: string } }
       - { label: Konum Avantajları, name: advantages, widget: list, field: { label: Avantaj, name: advantage, widget: string } }
       - { label: Ana Sayfada Göster, name: featured, widget: boolean, default: false }
