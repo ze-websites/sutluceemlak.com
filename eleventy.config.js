@@ -1,6 +1,9 @@
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/admin": "admin" });
+  // Vercel `/admin` yolunu son eğik çizgi olmadan da sunar. Decap bu URL'de
+  // config dosyasını `/config.yml` altında aradığı için iki yolu da yayımla.
+  eleventyConfig.addPassthroughCopy({ "src/admin/config.yml": "config.yml" });
   eleventyConfig.addPassthroughCopy({ "src/uploads": "uploads" });
 
   eleventyConfig.addCollection("ilanlar", collection =>
