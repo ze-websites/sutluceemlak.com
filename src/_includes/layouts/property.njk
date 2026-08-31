@@ -8,7 +8,7 @@ layout: layouts/base.njk
   "name": {{ title | json | safe }},
   "description": {{ description | json | safe }},
   "url": {{ (site.url + page.url) | json | safe }},
-  "image": [{% for photo in [image] + gallery %}{{ (site.url + photo) | json | safe }}{% if not loop.last %},{% endif %}{% endfor %}],
+  "image": [{{ (site.url + image) | json | safe }}{% for photo in gallery %},{{ (site.url + photo) | json | safe }}{% endfor %}],
   "address": {
     "@type": "PostalAddress",
     "streetAddress": {{ location | json | safe }},
@@ -40,7 +40,27 @@ layout: layouts/base.njk
 </script>
 <section class="page-hero"><div class="container page-title"><span class="badge {{ 'green' if status == 'Satılık' else 'red' }}">{{ status }} {{ propertyType }}</span><h1>{{ title }}</h1><p>{{ location }}</p></div></section>
 <section class="section"><div class="container">
-  <div class="gallery"><div class="big"><img src="{{ image }}" alt="{{ title }}"></div>{% for photo in gallery %}<img src="{{ photo }}" alt="{{ title }} fotoğrafı {{ loop.index + 1 }}">{% endfor %}</div>
+  {% set photoCount = 1 + (gallery | length) %}
+  <div class="property-gallery" data-gallery data-title="{{ title }}">
+    <div class="gallery-stage">
+      <button class="gallery-main" type="button" data-gallery-open aria-label="Fotoğrafı büyüt">
+        <img src="{{ image }}" alt="{{ title }}" data-gallery-main>
+      </button>
+      {% if photoCount > 1 %}
+      <button class="gallery-arrow gallery-prev" type="button" data-gallery-prev aria-label="Önceki fotoğraf">‹</button>
+      <button class="gallery-arrow gallery-next" type="button" data-gallery-next aria-label="Sonraki fotoğraf">›</button>
+      <span class="gallery-count" data-gallery-count>1 / {{ photoCount }}</span>
+      {% endif %}
+    </div>
+    {% if photoCount > 1 %}<div class="gallery-thumbs" aria-label="İlan fotoğrafları"><button type="button" class="gallery-thumb active" data-gallery-thumb data-src="{{ image }}" aria-label="1. fotoğrafı göster"><img src="{{ image }}" alt="" loading="lazy"></button>{% for photo in gallery %}<button type="button" class="gallery-thumb" data-gallery-thumb data-src="{{ photo }}" aria-label="{{ loop.index + 1 }}. fotoğrafı göster"><img src="{{ photo }}" alt="" loading="lazy"></button>{% endfor %}</div>{% endif %}
+  </div>
+  <div class="lightbox" data-lightbox hidden role="dialog" aria-modal="true" aria-label="İlan fotoğraf galerisi">
+    <button class="lightbox-close" type="button" data-lightbox-close aria-label="Galeriyi kapat">×</button>
+    {% if photoCount > 1 %}<button class="lightbox-arrow lightbox-prev" type="button" data-gallery-prev aria-label="Önceki fotoğraf">‹</button>{% endif %}
+    <img src="{{ image }}" alt="{{ title }}" data-lightbox-image>
+    {% if photoCount > 1 %}<button class="lightbox-arrow lightbox-next" type="button" data-gallery-next aria-label="Sonraki fotoğraf">›</button>{% endif %}
+    <span class="lightbox-count" data-lightbox-count>1 / {{ photoCount }}</span>
+  </div>
   <div class="detail-grid" style="margin-top:28px"><div><div class="detail-card"><div class="price">{{ price }}</div>
     <div class="specs">{% for feature in features %}<div class="spec"><small>Özellik</small><b>{{ feature }}</b></div>{% endfor %}</div>
     <h2>İlan Açıklaması</h2><div class="article-content">{{ content | safe }}</div>

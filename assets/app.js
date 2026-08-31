@@ -41,3 +41,60 @@ document.querySelectorAll('[data-whatsapp-form]').forEach(form => {
     window.open(`https://wa.me/${form.dataset.whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
   });
 });
+
+document.querySelectorAll('[data-gallery]').forEach(gallery => {
+  const thumbs = [...gallery.querySelectorAll('[data-gallery-thumb]')];
+  const sources = thumbs.length ? thumbs.map(thumb => thumb.dataset.src) : [gallery.querySelector('[data-gallery-main]').src];
+  const mainImage = gallery.querySelector('[data-gallery-main]');
+  const count = gallery.querySelector('[data-gallery-count]');
+  const lightbox = gallery.nextElementSibling?.matches('[data-lightbox]') ? gallery.nextElementSibling : null;
+  const lightboxImage = lightbox?.querySelector('[data-lightbox-image]');
+  const lightboxCount = lightbox?.querySelector('[data-lightbox-count]');
+  let current = 0;
+
+  const show = index => {
+    current = (index + sources.length) % sources.length;
+    mainImage.src = sources[current];
+    mainImage.alt = `${gallery.dataset.title} fotoğrafı ${current + 1}`;
+    if (lightboxImage) {
+      lightboxImage.src = sources[current];
+      lightboxImage.alt = mainImage.alt;
+    }
+    if (count) count.textContent = `${current + 1} / ${sources.length}`;
+    if (lightboxCount) lightboxCount.textContent = `${current + 1} / ${sources.length}`;
+    thumbs.forEach((thumb, index) => {
+      thumb.classList.toggle('active', index === current);
+      thumb.setAttribute('aria-current', index === current ? 'true' : 'false');
+    });
+    thumbs[current]?.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+  };
+
+  thumbs.forEach((thumb, index) => thumb.addEventListener('click', () => show(index)));
+  document.querySelectorAll('[data-gallery-prev]').forEach(button => {
+    if (gallery.contains(button) || lightbox?.contains(button)) button.addEventListener('click', () => show(current - 1));
+  });
+  document.querySelectorAll('[data-gallery-next]').forEach(button => {
+    if (gallery.contains(button) || lightbox?.contains(button)) button.addEventListener('click', () => show(current + 1));
+  });
+
+  gallery.querySelector('[data-gallery-open]')?.addEventListener('click', () => {
+    if (!lightbox) return;
+    lightbox.hidden = false;
+    document.body.classList.add('lightbox-open');
+    lightbox.querySelector('[data-lightbox-close]')?.focus();
+  });
+  const closeLightbox = () => {
+    if (!lightbox) return;
+    lightbox.hidden = true;
+    document.body.classList.remove('lightbox-open');
+    gallery.querySelector('[data-gallery-open]')?.focus();
+  };
+  lightbox?.querySelector('[data-lightbox-close]')?.addEventListener('click', closeLightbox);
+  lightbox?.addEventListener('click', event => { if (event.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', event => {
+    if (!lightbox || lightbox.hidden) return;
+    if (event.key === 'Escape') closeLightbox();
+    if (event.key === 'ArrowLeft') show(current - 1);
+    if (event.key === 'ArrowRight') show(current + 1);
+  });
+});

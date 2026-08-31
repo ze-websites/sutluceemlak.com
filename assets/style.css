@@ -89,7 +89,7 @@ button,input,select,textarea{font:inherit}
 .property:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
 .property-media{height:240px;position:relative;overflow:hidden}
 .property-media img{width:100%;height:100%;object-fit:cover;transition:.45s}
-.property-media img[src="/assets/logo.png"],.gallery img[src="/assets/logo.png"]{object-fit:contain;background:var(--soft);padding:38px}
+.property-media img[src="/assets/logo.png"],.gallery-main img[src="/assets/logo.png"]{object-fit:contain;background:var(--soft);padding:38px}
 .property:hover .property-media img{transform:scale(1.04)}
 .property-tags{position:absolute;left:14px;top:14px;display:flex;gap:8px}
 .favorite{position:absolute;right:14px;top:14px;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.94);font-size:18px}
@@ -146,10 +146,26 @@ textarea.input{min-height:130px;resize:vertical}
 .article p,.article li{color:#4b5563;font-size:17px;line-height:1.8}
 .article img{border-radius:22px;margin:28px 0}
 .detail-grid{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:30px}
-.gallery{display:grid;grid-template-columns:2fr 1fr;gap:10px}
-.gallery .big{grid-row:span 2;height:510px}
-.gallery img{width:100%;height:250px;object-fit:cover;border-radius:18px}
-.gallery .big img{height:100%}
+.property-gallery{display:grid;gap:12px}
+.gallery-stage{height:min(68vh,650px);min-height:420px;position:relative;overflow:hidden;border-radius:22px;background:#111827}
+.gallery-main{display:block;width:100%;height:100%;padding:0;border:0;background:transparent;cursor:zoom-in}
+.gallery-main img{width:100%;height:100%;object-fit:contain}
+.gallery-arrow,.lightbox-arrow,.lightbox-close{border:0;color:#fff;background:rgba(17,24,39,.72);cursor:pointer;display:grid;place-items:center;backdrop-filter:blur(8px)}
+.gallery-arrow{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;font-size:34px;line-height:1}
+.gallery-prev{left:18px}.gallery-next{right:18px}
+.gallery-count,.lightbox-count{position:absolute;color:#fff;background:rgba(17,24,39,.72);border-radius:999px;padding:7px 12px;font-size:13px;font-weight:800;backdrop-filter:blur(8px)}
+.gallery-count{right:16px;bottom:16px}
+.gallery-thumbs{display:flex;gap:10px;overflow-x:auto;padding:2px 2px 8px;scrollbar-width:thin}
+.gallery-thumb{flex:0 0 112px;height:78px;padding:0;border:3px solid transparent;border-radius:12px;overflow:hidden;background:var(--soft);cursor:pointer;opacity:.7}
+.gallery-thumb.active{border-color:var(--red);opacity:1}
+.gallery-thumb img{width:100%;height:100%;object-fit:cover}
+.lightbox[hidden]{display:none}
+.lightbox{position:fixed;inset:0;z-index:1000;background:rgba(3,7,18,.96);display:grid;place-items:center;padding:58px 80px}
+.lightbox img{max-width:100%;max-height:calc(100vh - 116px);object-fit:contain}
+.lightbox-close{position:absolute;right:22px;top:18px;width:46px;height:46px;border-radius:50%;font-size:32px}
+.lightbox-arrow{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:64px;border-radius:14px;font-size:38px}
+.lightbox-prev{left:18px}.lightbox-next{right:18px}.lightbox-count{bottom:18px;left:50%;transform:translateX(-50%)}
+body.lightbox-open{overflow:hidden}
 .detail-card{border:1px solid var(--line);border-radius:22px;padding:24px;background:#fff}
 .specs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}
 .spec{background:#f8fafc;padding:15px;border-radius:14px}
@@ -169,7 +185,8 @@ textarea.input{min-height:130px;resize:vertical}
   .section{padding:60px 0}.section-head{align-items:start;flex-direction:column}
   .cta{padding:30px;align-items:flex-start;flex-direction:column}
   .photo-stack{min-height:auto}.photo-stack .main{width:100%;height:350px}.photo-stack .small{display:none}
-  .gallery{grid-template-columns:1fr}.gallery .big{grid-row:auto;height:340px}.gallery img{height:220px}
+  .gallery-stage{height:430px;min-height:0}.gallery-thumb{flex-basis:88px;height:64px}
+  .lightbox{padding:62px 12px}.lightbox-arrow{width:44px;height:54px}.lightbox-prev{left:8px}.lightbox-next{right:8px}
   .copyright{flex-direction:column}.specs{grid-template-columns:1fr 1fr}
 }
 .display-title{font-size:44px;letter-spacing:-.04em;margin:14px 0}
