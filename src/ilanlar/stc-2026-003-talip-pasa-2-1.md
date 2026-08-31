@@ -6,6 +6,8 @@ status: Kiralık
 propertyType: Konut
 location: Sütlüce · Talip Paşa Sokak
 price: 40.000 TL / ay
+priceValue: 40000
+priceCurrency: TRY
 image: /assets/logo.png
 gallery: []
 features: ["2+1", "1. Kat", "Doğalgaz", "Eşyasız"]

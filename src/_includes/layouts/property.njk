@@ -1,6 +1,43 @@
 ---
 layout: layouts/base.njk
 ---
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Apartment",
+  "name": {{ title | json | safe }},
+  "description": {{ description | json | safe }},
+  "url": {{ (site.url + page.url) | json | safe }},
+  "image": [{% for photo in [image] + gallery %}{{ (site.url + photo) | json | safe }}{% if not loop.last %},{% endif %}{% endfor %}],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": {{ location | json | safe }},
+    "addressLocality": "Beyoğlu",
+    "addressRegion": "İstanbul",
+    "addressCountry": "TR"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": {{ (site.url + page.url) | json | safe }},
+    "price": {{ priceValue | json | safe }},
+    "priceCurrency": {{ (priceCurrency or 'TRY') | json | safe }},
+    "availability": "https://schema.org/InStock",
+    "seller": { "@id": {{ (site.url + '/#business') | json | safe }} }
+  },
+  "additionalProperty": [{% for feature in features %}{ "@type": "PropertyValue", "name": "Özellik", "value": {{ feature | json | safe }} }{% if not loop.last %},{% endif %}{% endfor %}]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": {{ (site.url + '/') | json | safe }} },
+    { "@type": "ListItem", "position": 2, "name": "İlanlar", "item": {{ (site.url + '/ilanlar/') | json | safe }} },
+    { "@type": "ListItem", "position": 3, "name": {{ title | json | safe }}, "item": {{ (site.url + page.url) | json | safe }} }
+  ]
+}
+</script>
 <section class="page-hero"><div class="container page-title"><span class="badge {{ 'green' if status == 'Satılık' else 'red' }}">{{ status }} {{ propertyType }}</span><h1>{{ title }}</h1><p>{{ location }}</p></div></section>
 <section class="section"><div class="container">
   <div class="gallery"><div class="big"><img src="{{ image }}" alt="{{ title }}"></div>{% for photo in gallery %}<img src="{{ photo }}" alt="{{ title }} fotoğrafı {{ loop.index + 1 }}">{% endfor %}</div>

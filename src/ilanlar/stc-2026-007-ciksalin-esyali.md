@@ -6,6 +6,8 @@ status: Kiralık
 propertyType: Konut
 location: Halıcıoğlu · Çıksalın Sokak
 price: 35.000 TL / ay
+priceValue: 35000
+priceCurrency: TRY
 image: /uploads/ilanlar/stc-2026-007/6tjq0kdeCLqeCdzl2rqv8v6fv3ORV7l25YElG07k.jpg
 gallery:
   - /uploads/ilanlar/stc-2026-007/E4DA1JzNaDbdUk7mAhO2WpgEVRmZGm9elqBQAYx3.jpg

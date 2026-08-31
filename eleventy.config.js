@@ -1,4 +1,6 @@
 export default function (eleventyConfig) {
+  eleventyConfig.addFilter("isoDate", value => new Date(value).toISOString().slice(0, 10));
+  eleventyConfig.addFilter("json", value => JSON.stringify(value));
   eleventyConfig.addPassthroughCopy({ "assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/admin": "admin" });
   // Vercel `/admin` yolunu son eğik çizgi olmadan da sunar. Decap bu URL'de

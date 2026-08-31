@@ -26,6 +26,8 @@ collections:
       - { label: Gayrimenkul Türü, name: propertyType, widget: select, options: [Konut, Ticari, Ofis, Arsa] }
       - { label: Konum, name: location, widget: string }
       - { label: Fiyat, name: price, widget: string }
+      - { label: Sayısal Fiyat, name: priceValue, widget: number, value_type: int, required: false, hint: "Yapılandırılmış SEO verisi için yalnızca rakam girin. Örnek: 40000" }
+      - { label: Para Birimi, name: priceCurrency, widget: select, options: [TRY, USD, EUR], default: TRY, required: false }
       - { label: Kapak Görseli, name: image, widget: image, allow_multiple: false }
       - label: Galeri
         name: gallery

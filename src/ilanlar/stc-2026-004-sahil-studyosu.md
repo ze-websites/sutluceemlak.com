@@ -6,6 +6,8 @@ status: Kiralık
 propertyType: Konut
 location: Sütlüce · İmrahor Caddesi
 price: 40.000 TL / ay
+priceValue: 40000
+priceCurrency: TRY
 image: /uploads/ilanlar/stc-2026-004/cEVEiR8v6GBnUgNcc7unYxbwXPLQk76X6W20q9Hf.png
 gallery:
   - /uploads/ilanlar/stc-2026-004/XHgK2gRQpOFiIThpdUZ4o7sLzDDw1pTkeETpK3El.png

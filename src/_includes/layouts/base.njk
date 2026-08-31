@@ -14,6 +14,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>{{ seoTitle or (title + " | " + site.name) }}</title>
   <meta name="description" content="{{ description or site.description }}">
+  <meta name="robots" content="{{ robots or 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' }}">
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
   <meta property="og:locale" content="tr_TR">
   <meta property="og:type" content="{{ 'article' if nav == 'blog' else 'website' }}">
@@ -21,6 +22,15 @@
   <meta property="og:description" content="{{ description or site.description }}">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:image" content="{{ site.url }}{{ image or '/assets/logo.png' }}">
+  <meta property="og:image:secure_url" content="{{ site.url }}{{ image or '/assets/logo.png' }}">
+  <meta property="og:image:alt" content="{{ title or site.name }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ seoTitle or (title + ' | ' + site.name) }}">
+  <meta name="twitter:description" content="{{ description or site.description }}">
+  <meta name="twitter:image" content="{{ site.url }}{{ image or '/assets/logo.png' }}">
+  <meta name="twitter:image:alt" content="{{ title or site.name }}">
+  <meta name="theme-color" content="#ffffff">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
