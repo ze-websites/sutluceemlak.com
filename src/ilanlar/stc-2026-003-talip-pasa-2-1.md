@@ -8,8 +8,20 @@ location: Sütlüce · Talip Paşa Sokak
 price: 40.000 TL / ay
 priceValue: 40000
 priceCurrency: TRY
-image: /assets/logo.png
-gallery: []
+image: /uploads/ilanlar/stc-2026-003/talip-pasa-sokak-01.jpg
+gallery:
+  - /uploads/ilanlar/stc-2026-003/talip-pasa-sokak-02.jpg
+  - /uploads/ilanlar/stc-2026-003/talip-pasa-sokak-03.jpg
+  - /uploads/ilanlar/stc-2026-003/talip-pasa-sokak-04.jpg
+  - /uploads/ilanlar/stc-2026-003/talip-pasa-sokak-05.jpg
+  - /uploads/ilanlar/stc-2026-003/talip-pasa-sokak-06.jpg
+  - /uploads/ilanlar/stc-2026-003/talip-pasa-sokak-07.jpg
+  - /uploads/ilanlar/stc-2026-003/talip-pasa-sokak-08.jpg
+  - /uploads/ilanlar/stc-2026-003/talip-pasa-sokak-09.jpg
+  - /uploads/ilanlar/stc-2026-003/talip-pasa-sokak-10.jpg
+  - /uploads/ilanlar/stc-2026-003/talip-pasa-sokak-11.jpg
+  - /uploads/ilanlar/stc-2026-003/talip-pasa-sokak-12.jpg
+  - /uploads/ilanlar/stc-2026-003/talip-pasa-sokak-13.jpg
 features: ["2+1", "1. Kat", "Doğalgaz", "Eşyasız"]
 advantages: ["Kapıları yenilenmiş", "Geniş ve ferah plan", "Talip Paşa Sokak konumu"]
 featured: false
