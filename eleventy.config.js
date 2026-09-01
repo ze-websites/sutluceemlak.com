@@ -20,7 +20,10 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/uploads": "uploads" });
 
   eleventyConfig.addCollection("ilanlar", collection =>
-    collection.getFilteredByGlob("src/ilanlar/*.md").sort((a, b) => b.date - a.date)
+    collection
+      .getFilteredByGlob("src/ilanlar/*.md")
+      .filter(item => item.data.active !== false)
+      .sort((a, b) => b.date - a.date)
   );
   eleventyConfig.addCollection("yazilar", collection =>
     collection.getFilteredByGlob("src/blog/*.md").sort((a, b) => b.date - a.date)
