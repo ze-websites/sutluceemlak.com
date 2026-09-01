@@ -17,6 +17,8 @@ Sütlüce, Haliç kıyısındaki benzersiz konumu, metrobüs ve ana arterlere er
 
 Sütlüce'de mülk sahibi olarak kirayı belirlerken ya da kiracı olarak bütçe planlarken fiyatı en çok etkileyen 6 temel kriter öne çıkıyor:
 
+Güncel karşılaştırma için [Sütlüce kiralık daire portföyünü](/sutluce-kiralik-daire/) ve [Bademlik kiralık daire ilanlarını](/bademlik-kiralik-daire/) inceleyebilirsiniz.
+
 ### 1. Halıcıoğlu Metrobüs Durağına ve Toplu Taşımaya Yürüme Mesafesi
 
 Sütlüce emlak piyasasında kirayı doğrudan yukarı çeken ilk unsur ulaşımdır.

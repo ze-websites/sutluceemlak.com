@@ -19,6 +19,8 @@ Haliç’in kalbinde yer alan Sütlüce; bünyesindeki kampüsler, çevresindeki
 
 Sütlüce’de ev tutmayı düşünen öğrenciler ve akademisyenler için çevredeki üniversitelere adım adım ulaşım rehberi:
 
+Ev arama sürecinde [Bademlik kiralık daire seçeneklerini](/bademlik-kiralik-daire/) ve [Halıcıoğlu kiralık daire ilanlarını](/halicioglu-kiralik-daire/) birlikte karşılaştırabilirsiniz.
+
 ## 1. Yürüme Mesafesindeki Üniversiteler ve Kampüsler
 
 Sütlüce'nin merkezinde veya hemen yanı başında yer alan bu kampüslere gitmek için toplu taşımaya ihtiyacınız kalmaz.

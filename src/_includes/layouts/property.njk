@@ -16,6 +16,8 @@ layout: layouts/base.njk
     "addressRegion": "İstanbul",
     "addressCountry": "TR"
   },
+  {% if numberOfRooms %}"numberOfRooms": {{ numberOfRooms | json | safe }},{% endif %}
+  {% if floorSize %}"floorSize": { "@type": "QuantitativeValue", "value": {{ floorSize | json | safe }}, "unitCode": "MTK" },{% endif %}
   "offers": {
     "@type": "Offer",
     "url": {{ (site.url + page.url) | json | safe }},
@@ -44,7 +46,7 @@ layout: layouts/base.njk
   <div class="property-gallery" data-gallery data-title="{{ title }}">
     <div class="gallery-stage">
       <button class="gallery-main" type="button" data-gallery-open aria-label="Fotoğrafı büyüt">
-        <img src="{{ image }}" alt="{{ title }}" data-gallery-main>
+        <img src="{{ image }}" alt="{{ location }} konumundaki {{ title | lower }}" fetchpriority="high" decoding="async" data-gallery-main>
       </button>
       {% if photoCount > 1 %}
       <button class="gallery-arrow gallery-prev" type="button" data-gallery-prev aria-label="Önceki fotoğraf">‹</button>

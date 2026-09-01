@@ -5,6 +5,7 @@ date: 2026-08-31
 status: Kiralık
 propertyType: Konut
 location: Sütlüce Mahallesi · Fuadiye Sokak
+areas: ["Sütlüce"]
 price: 40.000 TL / ay
 priceValue: 40000
 priceCurrency: TRY

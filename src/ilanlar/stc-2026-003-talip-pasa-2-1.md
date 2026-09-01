@@ -6,6 +6,7 @@ date: 2026-08-11
 status: Kiralık
 propertyType: Konut
 location: Sütlüce · Talip Paşa Sokak
+areas: ["Sütlüce", "Bademlik"]
 price: 40.000 TL / ay
 priceValue: 40000
 image: /uploads/ilanlar/stc-2026-003/talip-pasa-sokak-01.jpg

@@ -5,6 +5,7 @@ date: 2026-08-11
 status: Kiralık
 propertyType: Konut
 location: Sütlüce · Sandalcı Kerim Sokak
+areas: ["Sütlüce"]
 price: 29.000 TL / ay
 priceValue: 29000
 priceCurrency: TRY

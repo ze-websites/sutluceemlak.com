@@ -25,9 +25,12 @@ collections:
       - { label: Durum, name: status, widget: select, options: [Satılık, Kiralık] }
       - { label: Gayrimenkul Türü, name: propertyType, widget: select, options: [Konut, Ticari, Ofis, Arsa] }
       - { label: Konum, name: location, widget: string }
+      - { label: Hizmet Bölgeleri, name: areas, widget: select, multiple: true, options: [Sütlüce, Bademlik, Halıcıoğlu, Örnektepe, Çıksalın], hint: "İlanın ilgili landing sayfalarında gösterileceği bölgeleri seçin." }
       - { label: Fiyat, name: price, widget: string }
       - { label: Sayısal Fiyat, name: priceValue, widget: number, value_type: int, required: false, hint: "Yapılandırılmış SEO verisi için yalnızca rakam girin. Örnek: 40000" }
       - { label: Para Birimi, name: priceCurrency, widget: select, options: [TRY, USD, EUR], default: TRY, required: false }
+      - { label: Oda Sayısı, name: numberOfRooms, widget: number, value_type: int, required: false, hint: "Schema için toplam oda sayısı. Örnek: 2+1 daire için 3" }
+      - { label: Net Alan (m²), name: floorSize, widget: number, value_type: float, required: false }
       - { label: Kapak Görseli, name: image, widget: image, allow_multiple: false }
       - label: Galeri
         name: gallery

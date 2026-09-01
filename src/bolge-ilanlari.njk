@@ -1,0 +1,48 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: landingPages
+  size: 1
+  alias: landing
+permalink: "/{{ landing.slug }}/"
+eleventyComputed:
+  title: "{{ landing.title }}"
+  seoTitle: "{{ landing.seoTitle }}"
+  description: "{{ landing.description }}"
+nav: ilanlar
+eleventyExcludeFromCollections: true
+---
+{% set listings = collections.ilanlar | localListings(landing.status, landing.area) %}
+<nav class="breadcrumbs" aria-label="İçerik yolu"><div class="container"><ol>
+  <li><a href="/">Ana Sayfa</a></li>
+  <li><a href="/ilanlar/">{{ landing.status }} Daire</a></li>
+  <li><a href="/sutluce-bademlik-emlak/">Beyoğlu</a></li>
+  <li aria-current="page">{{ landing.title }}</li>
+</ol></div></nav>
+
+<header class="page-hero"><div class="container page-title">
+  <span class="badge {{ 'green' if landing.status == 'Satılık' else 'red' }}">{{ landing.area }} · Beyoğlu</span>
+  <h1>{{ landing.title }}</h1><p>{{ landing.intro }}</p>
+</div></header>
+
+<section class="section" aria-labelledby="guncel-ilanlar"><div class="container">
+  <div class="section-head"><div><span class="badge green">Güncel portföy</span><h2 id="guncel-ilanlar">Güncel {{ landing.area }} {{ landing.status }} Daireler</h2><p>Yayındaki portföyler otomatik olarak güncellenir.</p></div><a class="btn btn-light" href="/ilanlar/">Tüm ilanları gör</a></div>
+  {% if listings.length %}<div class="grid-3">{% for item in listings %}{% include "components/property-card.njk" %}{% endfor %}</div>
+  {% else %}<div class="listing-empty"><h3>Şu anda yayında uygun ilan bulunmuyor.</h3><p>Yeni portföylerden haberdar olmak veya aradığınız dairenin özelliklerini iletmek için bize ulaşın.</p><a class="btn btn-primary" href="https://wa.me/{{ site.phoneRaw }}">Talebinizi iletin →</a></div>{% endif %}
+</div></section>
+
+<section class="section soft" aria-labelledby="bolge-rehberi"><div class="container article">
+  <h2 id="bolge-rehberi">{{ landing.guideTitle }}</h2>
+  {% for paragraph in landing.paragraphs %}<p>{{ paragraph }}</p>{% endfor %}
+  <p>Bu rehber genel bölge bilgisi sunar; her dairenin konumu ve özellikleri farklıdır. {{ landing.area }} bölgesindeki {{ landing.status | lower }} konutları karşılaştırırken güncel ilan ayrıntılarını ve sözleşme koşullarını ayrıca doğrulayın.</p>
+  <div class="cta"><div><h3>{{ landing.area }} bölgesinde {{ landing.status | lower }} daire mi arıyorsunuz?</h3><p>İhtiyacınızı iletin, uygun portföyleri birlikte değerlendirelim.</p></div><a class="btn btn-primary" href="https://wa.me/{{ site.phoneRaw }}">WhatsApp’tan ulaşın →</a></div>
+</div></section>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Ana Sayfa","item":{{ (site.url + '/') | json | safe }}},
+  {"@type":"ListItem","position":2,"name":{{ (landing.status + ' Daire') | json | safe }},"item":{{ (site.url + '/ilanlar/') | json | safe }}},
+  {"@type":"ListItem","position":3,"name":"Beyoğlu","item":{{ (site.url + '/sutluce-bademlik-emlak/') | json | safe }}},
+  {"@type":"ListItem","position":4,"name":{{ landing.title | json | safe }},"item":{{ (site.url + '/' + landing.slug + '/') | json | safe }}}
+]}
+</script>

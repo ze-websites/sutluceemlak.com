@@ -18,6 +18,8 @@ featured: true
 
 Ancak Sütlüce’de ev seçerken yalnızca metrekareye veya daire fiyatına bakmak yetmez. Mahalle içinde birkaç sokaklık fark bile günlük yaşam kalitenizi ve yatırımınızın geri dönüş süresini doğrudan etkiler.
 
+Güncel seçenekleri karşılaştırmak için [Sütlüce kiralık daire ilanlarını](/sutluce-kiralik-daire/) inceleyebilirsiniz.
+
 Sütlüce Emlak olarak, bölgede doğru evi bulmanızı ve doğru yatırımı yapmanızı sağlayacak 7 altın kuralı sizler için derledik.
 
 ## 1. Halıcıoğlu Metrobüs Durağına Gerçek Yürüme Mesafesi

@@ -1,6 +1,14 @@
 export default function (eleventyConfig) {
   eleventyConfig.addFilter("isoDate", value => new Date(value).toISOString().slice(0, 10));
   eleventyConfig.addFilter("json", value => JSON.stringify(value));
+  eleventyConfig.addFilter("localListings", (items, status, area) =>
+    items.filter(item =>
+      item.data.status === status &&
+      item.data.propertyType === "Konut" &&
+      Array.isArray(item.data.areas) &&
+      item.data.areas.includes(area)
+    )
+  );
   eleventyConfig.addPassthroughCopy({ "assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/admin": "admin" });
   // Vercel `/admin` yolunu son eğik çizgi olmadan da sunar. Decap bu URL'de
