@@ -12,11 +12,6 @@ areas:
 price: 40.000 TL / ay
 priceValue: 40000
 priceCurrency: TRY
-advantages:
-  - Geniş ve ferah iç plan
-  - Asansör ve otopark imkânı
-  - Fuadiye Sokak konumu
-permalink: /ilanlar/fuadiye-sokak-yeni-binada-ferah-2-1/
 image: /uploads/ilanlar/stc-2026-008/fuadiye-sokak-02.jpg
 gallery:
   - /uploads/ilanlar/stc-2026-008/fuadiye-sokak-01.jpg
@@ -36,7 +31,15 @@ features:
   - Yeni Bina
   - Asansörlü
   - Otoparklı
+advantages:
+  - Geniş ve ferah iç plan
+  - Asansör ve otopark imkânı
+  - Fuadiye Sokak konumu
 featured: true
+redirectSlug: fuadiye21
+permalink: /ilanlar/fuadiye-sokak-yeni-binada-ferah-2-1/
 portfolioNumber: STC-2026-008
+whatsappMessage: Merhaba, Fuadiye Sokak'ta Yeni Binada Ferah 2+1 ilanı için
+  randevu almak istiyorum.
 ---
 Sütlüce Mahallesi Fuadiye Sokak'ta yer alan 2+1 kiralık daire, yeni binası ve ferah iç planıyla konforlu bir yaşam sunuyor. Gün ışığı alan yaşam alanları, kullanışlı mutfağı ve modern banyosuyla öne çıkan daire; asansör ve otopark imkânına da sahiptir.
