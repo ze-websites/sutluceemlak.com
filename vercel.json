@@ -2,7 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "functions": {
     "api/go.js": {
-      "includeFiles": ["src/ilanlar/**", "src/_data/site.json"]
+      "includeFiles": "src/{ilanlar/**,_data/site.json}"
     }
   },
   "rewrites": [
