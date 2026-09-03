@@ -45,6 +45,9 @@ collections:
       - { label: Özellikler, name: features, widget: list, field: { label: Özellik, name: feature, widget: string } }
       - { label: Konum Avantajları, name: advantages, widget: list, field: { label: Avantaj, name: advantage, widget: string } }
       - { label: Ana Sayfada Göster, name: featured, widget: boolean, default: false }
+      - { label: Kısa Takip Slug'ı, name: redirectSlug, widget: string, required: false, pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Yalnızca küçük harf, rakam ve tire kullanın. Örnek: sutluce-1-1'], hint: "Kısa takip adresinde kullanılır: /go/sutluce-1-1" }
+      - { label: WhatsApp Numarası, name: whatsapp, widget: string, required: false, hint: "Boş bırakılırsa Genel Bilgiler'deki WhatsApp numarası kullanılır. Örnek: 905392715889" }
+      - { label: WhatsApp Hazır Mesajı, name: whatsappMessage, widget: text, required: false, hint: "Boş bırakılırsa ilan başlığını içeren otomatik mesaj kullanılır." }
       - { label: Açıklama, name: body, widget: markdown }
 
   - name: blog

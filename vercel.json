@@ -1,0 +1,11 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/go.js": {
+      "includeFiles": ["src/ilanlar/**", "src/_data/site.json"]
+    }
+  },
+  "rewrites": [
+    { "source": "/go/:slug", "destination": "/api/go?slug=:slug" }
+  ]
+}
