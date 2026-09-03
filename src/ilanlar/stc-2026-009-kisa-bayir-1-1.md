@@ -2,7 +2,7 @@
 title: Kısa Bayır'da Yeni Binada Asansörlü 1+1
 description: Sütlüce Kısa Bayır'da yeni binada, asansörlü ve ferah kiralık 1+1 daire.
 date: 2026-09-03
-active: true
+active: false
 status: Kiralık
 propertyType: Konut
 location: Sütlüce · Kısa Bayır
@@ -30,10 +30,11 @@ advantages:
   - Aydınlık ve ferah yaşam alanı
   - Yeni bina ve asansör konforu
   - Kısa Bayır'da merkezi konum
-featured: true
+featured: false
 redirectSlug: kisabayir11
 permalink: /ilanlar/kisa-bayir-yeni-binada-asansorlu-1-1/
 portfolioNumber: STC-2026-009
-whatsappMessage: Merhaba, Kısa Bayır'da Yeni Binada Asansörlü 1+1 ilanı için randevu almak istiyorum.
+whatsappMessage: Merhaba, Kısa Bayır'da Yeni Binada Asansörlü 1+1 ilanı için
+  randevu almak istiyorum.
 ---
 Sütlüce Kısa Bayır'da yer alan kiralık 1+1 daire, yeni binası ve asansör imkânıyla konforlu bir yaşam sunuyor. Aydınlık açık mutfaklı yaşam alanı, kullanışlı yatak odası ve modern banyosuyla öne çıkan daire aylık 35.000 TL bedelle kiralıktır.
