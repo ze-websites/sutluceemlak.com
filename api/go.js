@@ -55,33 +55,50 @@ function clientIdFromCookie(cookieHeader = "") {
 }
 
 export async function sendAnalytics(request, listingSlug, attribution) {
-  const measurementId = "G-ZR7SD6J226";
-  const apiSecret = "VJVr1ABOT6-yjE6sHghrVw";
-  if (!measurementId || !apiSecret) return;
+  console.log("GA4 SEND START", listingSlug);
+  const measurementId = process.env.GA4_MEASUREMENT_ID;
+  const apiSecret = process.env.GA4_API_SECRET;
+  if (!measurementId || !apiSecret) {
+    console.error("GA4 CONFIG MISSING", {
+      hasMeasurementId: Boolean(measurementId),
+      hasApiSecret: Boolean(apiSecret)
+    });
+    console.log("GA4 SEND END");
+    return;
+  }
   const endpoint = new URL("https://www.google-analytics.com/mp/collect");
   endpoint.searchParams.set("measurement_id", measurementId);
   endpoint.searchParams.set("api_secret", apiSecret);
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 700);
+  const payload = {
+    client_id: clientIdFromCookie(request.headers.cookie),
+    events: [{ name: "whatsapp_click", params: {
+      listing_slug: listingSlug,
+      source: attribution.source,
+      medium: attribution.medium,
+      campaign: attribution.campaign,
+      session_id: Math.floor(Date.now() / 1000),
+      engagement_time_msec: 1
+    } }]
+  };
+  console.log("GA4 PAYLOAD:", JSON.stringify(payload));
   try {
-    await fetch(endpoint, {
+    const gaResponse = await fetch(endpoint, {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({
-        client_id: clientIdFromCookie(request.headers.cookie),
-        events: [{ name: "whatsapp_click", params: {
-          listing_slug: listingSlug,
-          source: attribution.source,
-          medium: attribution.medium,
-          campaign: attribution.campaign,
-          session_id: Math.floor(Date.now() / 1000),
-          engagement_time_msec: 1
-        } }]
-      }),
+      body: JSON.stringify(payload),
       signal: controller.signal
     });
+    const responseBody = await gaResponse.text();
+    console.log("GA4 RESPONSE STATUS:", gaResponse.status);
+    console.log("GA4 RESPONSE BODY:", responseBody);
+  } catch (error) {
+    console.error("GA4 SEND ERROR:", error instanceof Error ? error.message : String(error));
+    throw error;
   } finally {
     clearTimeout(timeout);
+    console.log("GA4 SEND END");
   }
 }
 
